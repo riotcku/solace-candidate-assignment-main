@@ -1,12 +1,14 @@
 import db from "../../../db";
 import { advocates } from "../../../db/schema";
-import { advocateData } from "../../../db/seed/advocates";
+// import { advocateData } from "../../../db/seed/advocates";
+// import { NextRequest } from "next/server";
+// import { Advocate } from "@/app/types/advocate";
 
 export async function GET() {
-  // Uncomment this line to use a database
-  // const data = await db.select().from(advocates);
-
-  const data = advocateData;
-
-  return Response.json({ data });
+  try {
+    const data = await db.select().from(advocates);
+    return Response.json({ data });
+  } catch (e) {
+    return Response.json({ error: "Failed to fetch advocates", status: "500"})
+  }
 }
