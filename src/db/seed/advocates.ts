@@ -1,34 +1,38 @@
 import db from "..";
 import { advocates } from "../schema";
+import { specialties, firstNames, lastNames, cities, degrees } from "./mockData.js"
 
-const specialties = [
-  "Bipolar",
-  "LGBTQ",
-  "Medication/Prescribing",
-  "Suicide History/Attempts",
-  "General Mental Health (anxiety, depression, stress, grief, life transitions)",
-  "Men's issues",
-  "Relationship Issues (family, friends, couple, etc)",
-  "Trauma & PTSD",
-  "Personality disorders",
-  "Personal growth",
-  "Substance use/abuse",
-  "Pediatrics",
-  "Women's issues (post-partum, infertility, family planning)",
-  "Chronic pain",
-  "Weight loss & nutrition",
-  "Eating disorders",
-  "Diabetic Diet and nutrition",
-  "Coaching (leadership, career, academic and wellness)",
-  "Life coaching",
-  "Obsessive-compulsive disorders",
-  "Neuropsychological evaluations & testing (ADHD testing)",
-  "Attention and Hyperactivity (ADHD)",
-  "Sleep issues",
-  "Schizophrenia and psychotic disorders",
-  "Learning disorders",
-  "Domestic abuse",
-];
+type Advocate = typeof advocates.$inferInsert;
+
+const pickRandomFromArray = (arr: any[]) => {
+  const randomIndex = Math.floor(Math.random() * arr.length);
+  return arr[randomIndex];
+}
+
+function generateRandomPhoneNumber() {
+  let phone = '';
+  for (let i = 0; i < 10; i++) {
+    phone += Math.floor(Math.random() * 10);
+  }
+  return Number(phone);
+}
+
+const generateAdvocateData = (num: number): Advocate[] => {
+  const generatedData = []
+  for (let i = 0; i < num; i++) {
+    generatedData.push({
+      firstName: pickRandomFromArray(firstNames),
+      lastName: pickRandomFromArray(lastNames),
+      city: pickRandomFromArray(cities),
+      degree: pickRandomFromArray(degrees),
+      specialties: specialties.slice(...randomSpecialty()),
+      yearsOfExperience: Math.floor(Math.random() * 25),
+      phoneNumber: generateRandomPhoneNumber(),
+    })
+  }
+
+  return generatedData;
+}
 
 const randomSpecialty = () => {
   const random1 = Math.floor(Math.random() * 24);
@@ -175,4 +179,4 @@ const advocateData = [
   },
 ];
 
-export { advocateData };
+export { advocateData, generateAdvocateData };
