@@ -3,6 +3,7 @@
 @tailwind components;
 
 :root {
+  --spacing: 8px;
   --advocates-title-height: 104px;
   --advocates-search-section-height: 125px;
 }

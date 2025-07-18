@@ -1,6 +1,6 @@
 "use client";
 
-import SectionContainer from "@/app/components/SectionContainer";
+import SectionContainer from "@/app/components/shared/SectionContainer";
 import AdvocatesPage from "@/app/pages/advocates";
 
 export default function Home() {
