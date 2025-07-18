@@ -1,6 +1,12 @@
 @tailwind base;
-@tailwind components;
 @tailwind utilities;
+@tailwind components;
+
+:root {
+  --spacing: 8px;
+  --advocates-title-height: 104px;
+  --advocates-search-section-height: 125px;
+}
 
 .bg-circle-left::before {
   content: '';
@@ -20,11 +26,36 @@
   content: '';
   background-color: #f4fcfa;
   display: block;
-  border-radius: 50%;
-  width: 480px;
-  height: 480px;
+  border-top-left-radius: 120px;
+  border-bottom-left-radius: 120px;
+  width: 120px;
+  height: 240px;
   position: absolute;
   top: 100%;
-  right: -240px;
+  right: 0;
   z-index: -1;
+}
+
+@keyframes spin {
+  100% {transform: translateX(-50%) rotate(1turn)}
+}
+
+.loader {
+  position: relative;
+  height: calc(100vh - var(--advocates-search-section-height) - var(--advocates-title-height) - 40px); 
+}
+
+.loader svg {
+  height: calc(100vh - var(--advocates-search-section-height) - var(--advocates-title-height) - 40px); 
+  animation: spin 60s infinite;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.loader-text {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 12px);
+  transform: translate(-50%);
 }
