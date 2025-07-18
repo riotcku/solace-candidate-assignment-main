@@ -9,7 +9,7 @@
 }
 
 .bg-circle-left::before {
-  content: '';
+  content: "";
   background-color: #f4fcfa;
   display: block;
   border-radius: 50%;
@@ -23,7 +23,7 @@
 }
 
 .bg-circle-right::before {
-  content: '';
+  content: "";
   background-color: #f4fcfa;
   display: block;
   border-top-left-radius: 120px;
@@ -37,16 +37,24 @@
 }
 
 @keyframes spin {
-  100% {transform: translateX(-50%) rotate(1turn)}
+  100% {
+    transform: translateX(-50%) rotate(1turn);
+  }
 }
 
 .loader {
   position: relative;
-  height: calc(100vh - var(--advocates-search-section-height) - var(--advocates-title-height) - 40px); 
+  height: calc(
+    100vh - var(--advocates-search-section-height) -
+      var(--advocates-title-height) - 40px
+  );
 }
 
 .loader svg {
-  height: calc(100vh - var(--advocates-search-section-height) - var(--advocates-title-height) - 40px); 
+  height: calc(
+    100vh - var(--advocates-search-section-height) -
+      var(--advocates-title-height) - 40px
+  );
   animation: spin 60s infinite;
   position: absolute;
   left: 50%;

@@ -9,7 +9,7 @@ export default function Home() {
       <SectionContainer className="pb-4 bg-solace-light-green flex flex-row align-center">
         <span className="text-2xl font-semibold">Solace Advocates Search</span>
       </SectionContainer>
-      <AdvocatesPage/>
+      <AdvocatesPage />
     </main>
   );
 }

@@ -1,3 +1,3 @@
 export interface SVGIconType {
-  className?: string,
+  className?: string;
 }

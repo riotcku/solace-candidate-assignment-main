@@ -1,23 +1,24 @@
 import { ChangeEvent } from "react";
 interface SearchBarProps {
-  className?: string,
-  query: string,
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void,
-  onSubmit?: () => void,
+  className?: string;
+  query: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  onSubmit?: () => void;
 }
 
 const SearchBar = ({
-  className = '',
+  className = "",
   query,
   onChange,
   onSubmit,
 }: SearchBarProps) => {
   return (
     <div className={`${className}`}>
-      <input value={query}
+      <input
+        value={query}
         onChange={onChange}
         onKeyDown={(e) => {
-          if (e.key === 'Enter' && onSubmit) {
+          if (e.key === "Enter" && onSubmit) {
             onSubmit();
           }
         }}
@@ -25,7 +26,7 @@ const SearchBar = ({
         placeholder="Search for advocate"
       />
     </div>
-  )
-}
+  );
+};
 
-export default SearchBar
+export default SearchBar;

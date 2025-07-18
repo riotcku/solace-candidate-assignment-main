@@ -29,24 +29,76 @@ export const specialties = [
   "Domestic abuse",
 ];
 export const firstNames = [
-  "John", "Jane", "Liam", "Olivia", "Noah", "Emma", "Oliver",
-  "Alice", "Roy", "Ava", "Elijah", "Charlotte", "James", "Amelia",
-  "Benjamin", "Sophia", "Lucas", "Isabella", "Henry", "Michael", "Emily",
-  "Mia", "Alexander", "Evelyn", "Michael", "Harper", "Daniel", "James", "Chris"
+  "John",
+  "Jane",
+  "Liam",
+  "Olivia",
+  "Noah",
+  "Emma",
+  "Oliver",
+  "Alice",
+  "Roy",
+  "Ava",
+  "Elijah",
+  "Charlotte",
+  "James",
+  "Amelia",
+  "Benjamin",
+  "Sophia",
+  "Lucas",
+  "Isabella",
+  "Henry",
+  "Michael",
+  "Emily",
+  "Mia",
+  "Alexander",
+  "Evelyn",
+  "Michael",
+  "Harper",
+  "Daniel",
+  "James",
+  "Chris",
 ];
 
 export const lastNames = [
-  "Smith", "Johnson", "Williams", "Brown", "Jones", "Lee",
-  "Garcia", "Miller", "Davis", "Rodriguez", "Martinez", "Ku",
-  "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Clark",
-  "Thomas", "Taylor", "Moore", "Jackson", "Martin"
+  "Smith",
+  "Johnson",
+  "Williams",
+  "Brown",
+  "Jones",
+  "Lee",
+  "Garcia",
+  "Miller",
+  "Davis",
+  "Rodriguez",
+  "Martinez",
+  "Ku",
+  "Hernandez",
+  "Lopez",
+  "Gonzalez",
+  "Wilson",
+  "Anderson",
+  "Clark",
+  "Thomas",
+  "Taylor",
+  "Moore",
+  "Jackson",
+  "Martin",
 ];
 
 export const degrees = ["MD", "PhD", "MSW"];
 
 export const cities = [
-  "New York", "Los Angeles", "Chicago", "Houston", "Phoenix",
-  "Philadelphia", "San Antonio", "San Diego", "Dallas", "San Jose"
+  "New York",
+  "Los Angeles",
+  "Chicago",
+  "Houston",
+  "Phoenix",
+  "Philadelphia",
+  "San Antonio",
+  "San Diego",
+  "Dallas",
+  "San Jose",
 ];
 
 export const mockAdvocateData = [

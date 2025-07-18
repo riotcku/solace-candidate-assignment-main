@@ -9,6 +9,6 @@ export async function GET() {
     const data = await db.select().from(advocates);
     return Response.json({ data });
   } catch (e) {
-    return Response.json({ error: "Failed to fetch advocates", status: "500"})
+    return Response.json({ error: "Failed to fetch advocates", status: "500" });
   }
 }

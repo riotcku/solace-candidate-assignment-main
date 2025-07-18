@@ -5,7 +5,7 @@ import { mockAdvocateData } from "@/db/seed/mockData";
 const fetchAdvocates = () => {
   const [advocates, setAdvocates] = useState<Advocate[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  
+
   useEffect(() => {
     try {
       setIsLoading(true);
@@ -15,14 +15,14 @@ const fetchAdvocates = () => {
           setIsLoading(false);
         });
       });
-    } catch(e) {
+    } catch (e) {
       console.error("Failed to fetch advocates. Using default data.");
       setAdvocates(mockAdvocateData);
       setIsLoading(false);
     }
   }, []);
 
-  return { advocates, isLoading }
-}
+  return { advocates, isLoading };
+};
 
 export default fetchAdvocates;
