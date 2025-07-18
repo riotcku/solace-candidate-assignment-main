@@ -5,9 +5,16 @@ import {
   lastNames,
   cities,
   degrees,
-} from "./mockData.js";
+} from "./mockData";
 
 type Advocate = typeof advocates.$inferInsert;
+
+function randomSpecialty(): [number, number] {
+  const random1 = Math.floor(Math.random() * 24);
+  const random2 = Math.floor(Math.random() * (24 - random1)) + random1 + 1;
+
+  return [random1, random2];
+}
 
 const pickRandomFromArray = (arr: any[]) => {
   const randomIndex = Math.floor(Math.random() * arr.length);
@@ -39,11 +46,4 @@ const generateAdvocateData = (num: number): Advocate[] => {
   return generatedData;
 };
 
-const randomSpecialty = () => {
-  const random1 = Math.floor(Math.random() * 24);
-  const random2 = Math.floor(Math.random() * (24 - random1)) + random1 + 1;
-
-  return [random1, random2];
-};
-
-export { generateAdvocateData, randomSpecialty };
+export { generateAdvocateData, randomSpecialty, pickRandomFromArray };
