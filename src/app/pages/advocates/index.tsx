@@ -28,7 +28,7 @@ const AdvocatesPage = () => {
     "Years of Experience",
     "Phone Number",
   ];
-  
+
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setIsTyping(true);
     setQuery(e.target.value);
@@ -36,12 +36,12 @@ const AdvocatesPage = () => {
       setSubmittedQuery("");
     }
   };
-  
+
   const debouncedQuery = debounce(query, 400);
 
   useEffect(() => {
     const queryToFilter = submittedQuery || debouncedQuery;
-    console.log(queryToFilter)
+    console.log(queryToFilter);
     if (!queryToFilter) {
       setFilteredAdvocates(advocates);
       setIsTyping(false);
@@ -50,10 +50,18 @@ const AdvocatesPage = () => {
 
     const filteredAdvocates = advocates.filter((advocate) => {
       return (
-        advocate.firstName.toLocaleLowerCase().includes(queryToFilter.toLocaleLowerCase()) ||
-        advocate.lastName.toLocaleLowerCase().includes(queryToFilter.toLocaleLowerCase()) ||
-        advocate.city.toLocaleLowerCase().includes(queryToFilter.toLocaleLowerCase()) ||
-        advocate.degree.toLocaleLowerCase().includes(queryToFilter.toLocaleLowerCase()) ||
+        advocate.firstName
+          .toLocaleLowerCase()
+          .includes(queryToFilter.toLocaleLowerCase()) ||
+        advocate.lastName
+          .toLocaleLowerCase()
+          .includes(queryToFilter.toLocaleLowerCase()) ||
+        advocate.city
+          .toLocaleLowerCase()
+          .includes(queryToFilter.toLocaleLowerCase()) ||
+        advocate.degree
+          .toLocaleLowerCase()
+          .includes(queryToFilter.toLocaleLowerCase()) ||
         advocate.specialties.includes(queryToFilter.toLocaleLowerCase()) ||
         advocate.yearsOfExperience.toString() === queryToFilter
       );
@@ -61,52 +69,64 @@ const AdvocatesPage = () => {
 
     setFilteredAdvocates(filteredAdvocates);
     setIsTyping(false);
-  }, [debouncedQuery, submittedQuery, advocates])
+  }, [debouncedQuery, submittedQuery, advocates]);
 
-  return (<>
-    <SectionContainer className="bg-circle-right">
-      <div className="flex flex-row justify-between items-stretch">
-        <div className="flex flex-col">
-          <h3 className="text-lg font-semibold text-charcoal">Advocates Search Table</h3>
-          {(submittedQuery || debouncedQuery) 
-            && (<div className="flex flex-row items-center">
-                  <span>Current Search: </span>
-                  <span className="ml-1 text-black">{submittedQuery || debouncedQuery}</span>
-                  <button type="button" className="w-2 h-2" onClick={() => {
+  return (
+    <>
+      <SectionContainer className="bg-circle-right">
+        <div className="flex flex-row justify-between items-stretch">
+          <div className="flex flex-col">
+            <h3 className="text-lg font-semibold text-charcoal">
+              Advocates Search Table
+            </h3>
+            {(submittedQuery || debouncedQuery) && (
+              <div className="flex flex-row items-center">
+                <span>Current Search: </span>
+                <span className="ml-1 text-black">
+                  {submittedQuery || debouncedQuery}
+                </span>
+                <button
+                  type="button"
+                  className="w-2 h-2"
+                  onClick={() => {
                     setQuery("");
                     setSubmittedQuery("");
                     setFilteredAdvocates(advocates);
-                  }}>
-                    <Refresh className="w-2 h-2 ml-1"/>
-                  </button>
-                </div>)}
-        </div>
-        <SearchBar className="basis-1/2"
-          query={query}
-          onChange={onChange}
-          onSubmit={() => {
-            // reset the query on enter press, but still perform search
-            setSubmittedQuery(query);
-            setQuery("");
-          }}/>
-        {/* <input style={{ border: "1px solid black" }} onChange={onChange} disabled={isLoading}/>
+                  }}
+                >
+                  <Refresh className="w-2 h-2 ml-1" />
+                </button>
+              </div>
+            )}
+          </div>
+          <SearchBar
+            className="basis-1/2"
+            query={query}
+            onChange={onChange}
+            onSubmit={() => {
+              // reset the query on enter press, but still perform search
+              setSubmittedQuery(query);
+              setQuery("");
+            }}
+          />
+          {/* <input style={{ border: "1px solid black" }} onChange={onChange} disabled={isLoading}/>
         <button onClick={onClick}>Reset Search</button> */}
-      </div>
-    </SectionContainer>
-    <SectionContainer className="bg-circle-left">
-      {isLoading || isTyping
-        ? (<div className="loader">
+        </div>
+      </SectionContainer>
+      <SectionContainer className="bg-circle-left">
+        {isLoading || isTyping ? (
+          <div className="loader">
             <span className="loader-text text-solace-dark-green">
               Loading . . .
             </span>
             <SolaceUniverseSVG />
-          </div>) 
-        : (<AdvocateTable
-            headers={ADVOCATE_HEADERS}
-            rows={filteredAdvocates}
-          />)}
-    </SectionContainer>
-  </>);
-}
+          </div>
+        ) : (
+          <AdvocateTable headers={ADVOCATE_HEADERS} rows={filteredAdvocates} />
+        )}
+      </SectionContainer>
+    </>
+  );
+};
 
 export default AdvocatesPage;

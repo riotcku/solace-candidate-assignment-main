@@ -8,19 +8,19 @@ const config: Config = {
   ],
   theme: {
     colors: {
-      'solace-light-green': "#e6faf4",
-      'solace-dark-green': "#00c895",
-      'charcoal': "#2b323a",
-      'white': '#FEFEFE',
+      "solace-light-green": "#e6faf4",
+      "solace-dark-green": "#00c895",
+      charcoal: "#2b323a",
+      white: "#FEFEFE",
     },
     spacing: {
-      '0': '0px',
-      '1': '8px',
-      '2': '16px',
-      '3': '24px',
-      '4': '32px',
-      '5': '40px',
-      '6': '48px',
+      "0": "0px",
+      "1": "8px",
+      "2": "16px",
+      "3": "24px",
+      "4": "32px",
+      "5": "40px",
+      "6": "48px",
     },
     extend: {
       backgroundImage: {

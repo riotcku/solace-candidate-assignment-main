@@ -11,7 +11,7 @@ const config = defineConfig({
   migrations: {
     prefix: "timestamp",
     table: "drizzle_migrations",
-  }
+  },
 });
 
 export default config;

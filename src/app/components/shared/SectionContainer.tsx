@@ -4,14 +4,12 @@ interface ContainerType {
   children: ReactNode;
 }
 
-const SectionContainer = ({
-  className,
-  children,
-}: ContainerType) => {
+const SectionContainer = ({ className, children }: ContainerType) => {
   return (
     <div className={`mx-auto max-w-1440 lg:pt-5 pt-4 px-4 ${className || ""}`}>
       {children}
-    </div>);
-}
+    </div>
+  );
+};
 
 export default SectionContainer;
