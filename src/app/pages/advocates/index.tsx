@@ -109,8 +109,6 @@ const AdvocatesPage = () => {
               setQuery("");
             }}
           />
-          {/* <input style={{ border: "1px solid black" }} onChange={onChange} disabled={isLoading}/>
-        <button onClick={onClick}>Reset Search</button> */}
         </div>
       </SectionContainer>
       <SectionContainer className="bg-circle-left">
